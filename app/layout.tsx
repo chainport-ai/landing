@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import { Header } from "@/components/header";
 import { cn } from "@/lib/utils";
 import { Footer } from "@/components/footer";
+import { CSPostHogProvider } from "@/app/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 const display = Bricolage_Grotesque({
@@ -59,14 +60,16 @@ export default function RootLayout({
         className={cn(inter.className, display.className)}
         suppressHydrationWarning
       >
-        <div className="relative">
-          {/* <Banner /> */}
-          <Suspense fallback={<div className="h-[64px]" />}>
-            <Header />
-          </Suspense>
-          <div className="min-h-[calc(100vh-64px)] pb-36">{children}</div>
-          <Footer />
-        </div>
+        <CSPostHogProvider>
+          <div className="relative">
+            {/* <Banner /> */}
+            <Suspense fallback={<div className="h-[64px]" />}>
+              <Header />
+            </Suspense>
+            <div className="min-h-[calc(100vh-64px)] pb-36">{children}</div>
+            <Footer />
+          </div>
+        </CSPostHogProvider>
       </body>
     </html>
   );
