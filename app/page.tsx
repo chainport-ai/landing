@@ -1,3 +1,5 @@
+import { Pricing } from "@/app/pricing/pricing";
+import { PricingPlans } from "@/app/pricing/pricing-plans";
 import { CallToAction } from "@/components/call-to-action";
 import { Features } from "@/components/features";
 import { Hero } from "@/components/hero";
@@ -25,8 +27,9 @@ export default function HomePage() {
         subheadline={siteConfig.homePage.testimonial.subheadline}
         testimonials={siteConfig.homePage.testimonial.testimonials}
       /> */}
+      <Pricing className="mt-28 container max-w-5xl" />
       <CallToAction
-        className="mt-10"
+        className="mt-20"
         headline={siteConfig.homePage.cta.headline}
         subheadline={siteConfig.homePage.cta.subheadline}
         logo={false}

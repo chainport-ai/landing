@@ -34,7 +34,7 @@ export const PricingPlan = (props: PlanProps) => {
       )}
     >
       {featured && (
-        <div className="bg-ring/80 absolute right-8 top-[-4px] z-[-1] translate-y-[-100%] rounded-t-lg px-4 py-1 text-white shadow-lg">
+        <div className="bg-ring/80 absolute right-8 top-[-4px] z-[-1] translate-y-[-100%] rounded-lg px-4 py-1 text-white shadow-lg">
           Most popular
         </div>
       )}

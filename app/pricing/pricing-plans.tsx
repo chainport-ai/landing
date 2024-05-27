@@ -9,17 +9,16 @@ import { Switch } from "@/components/ui/switch";
 const config = siteConfig.pricingPage;
 const pricingPlans = config.pricingPlans;
 
-interface PricingProps {
-  billingInterval: "monthly" | "yearly";
-  onBillingIntervalChange: (billingInterval: "monthly" | "yearly") => void;
+interface PricingPlanProps {
+  className?: string;
+  billingInterval: "oneTime";
 }
 
-export const PricingPlans = (props: PricingProps) => {
-  const { billingInterval, onBillingIntervalChange } = props;
-  const monthly = billingInterval === "monthly";
+export const PricingPlans = (props: PricingPlanProps) => {
+  const { billingInterval, className } = props;
 
   return (
-    <section>
+    <section className={className}>
       <div className="md:text-center">
         <h2 className="font-display text-5xl">{config.headline}</h2>
         <p className="text-muted-foreground mt-2 text-lg">
@@ -27,17 +26,7 @@ export const PricingPlans = (props: PricingProps) => {
         </p>
         <div className="mt-8 flex items-center justify-center space-x-4">
           <Label htmlFor="subscription" className="text-xl">
-            Monthly
-          </Label>
-          <Switch
-            checked={!monthly}
-            onCheckedChange={(checked) =>
-              onBillingIntervalChange(checked ? "yearly" : "monthly")
-            }
-            id="subscription"
-          />
-          <Label htmlFor="subscription" className="text-xl">
-            Yearly
+            Pay once, launch unlimited products
           </Label>
         </div>
       </div>
@@ -50,7 +39,7 @@ export const PricingPlans = (props: PricingProps) => {
           <PricingPlan
             key={plan.name}
             name={plan.name}
-            price={plan.price[monthly ? "monthly" : "yearly"]}
+            price={plan.price.oneTime}
             billing={plan.billing}
             description={plan.description}
             href={plan.href}

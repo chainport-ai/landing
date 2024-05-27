@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { cn, stringReplace } from "@/lib/utils";
 import { siteConfig } from "@/lib/config";
+import Link from "next/link";
 
 interface CallToActionProps {
   logo?: boolean;
@@ -37,9 +38,11 @@ export const CallToAction = (props: CallToActionProps) => {
         ))}
       </h2>
       <p className="text-muted-foreground mt-4">{subheadline}</p>
-      <Button size="lg" className="mt-8">
-        {cta.label}
-      </Button>
+      <Link href={cta.href}>
+        <Button size="lg" className="mt-8">
+          {cta.label}
+        </Button>
+      </Link>
     </section>
   );
 };

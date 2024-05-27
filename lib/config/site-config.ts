@@ -1,3 +1,4 @@
+import { Rocket } from "lucide-react";
 import { APP_URL } from "./constants";
 
 export const siteConfig = {
@@ -5,10 +6,18 @@ export const siteConfig = {
     url: "https://chainport.pro",
     name: "Chainport",
     logo: "/images/logo.svg",
-    title: "Chainport | AI-prowered web development platform",
+    title: "Chainport | Launch your next project faster with AI",
     description:
-      "Chainport provide AI-powered web development platform to help you build your next project faster.",
-    keywords: ["AIGC", "AI", "Web development", "Chatgpt", "GPT-4", "OpenAI"],
+      "Chainport provide AI-powered web development boilerplate to help you build your next project faster.",
+    keywords: [
+      "AIGC",
+      "AI",
+      "Web development",
+      "Chatgpt",
+      "GPT-4",
+      "OpenAI",
+      "Shipfast",
+    ],
     authors: [
       {
         name: "jotyy",
@@ -30,8 +39,8 @@ export const siteConfig = {
     },
     cta: {
       primary: {
-        label: "Join the waitlist",
-        href: "/waitlist",
+        label: "Get Shipped",
+        href: "/pricing",
       },
     },
   },
@@ -63,11 +72,11 @@ export const siteConfig = {
       subheadline:
         "Chainport provide AI-powered web development platform to help you build your next project faster.",
       cta: [
-        { label: "Join the waitlist", href: APP_URL },
-        {
-          label: "Contact us",
-          href: "mailto:wanjun@chainport.pro",
-        },
+        { label: "Get Shipped", icon: Rocket, href: "/pricing" },
+        // {
+        //   label: "Contact us",
+        //   href: "mailto:wanjun@chainport.pro",
+        // },
       ],
       demoVideo: {
         src: null,
@@ -81,37 +90,53 @@ export const siteConfig = {
       // ],
     },
     techs: {
-      headline: "What We are **Using**",
+      headline: "You don't need to\n **code everything** yourself.",
       features: [
         {
-          title: "ChatGPT",
+          title: "AI Integration",
           description:
-            "ChatGPT is a large language model trained to generate human-like responses to given conversational prompts.",
+            "Out-of-the-box integration with OpenAI's GPT-4 to generate code based on your requirements.",
           image: "/images/features/openai.svg",
-          cta: {
-            label: "See more",
-            href: "#",
-          },
+          items: ["AI Chat", "AI Code Generation", "AI-enabled text editor"],
+          label: "24 hours saved",
         },
         {
-          title: "Next.js",
+          title: "Web Development",
           description:
-            "Explore the latest Next.js 14 features: App dir, Routing, Layouts, Loading UI, API routes, Server components, Server actions, and more.",
+            "Next14 project setup with Landing page, Blog, and Document pages. Tailwind CSS, TypeScript, ESLint, Prettier, and Husky pre-configured.",
           image: "/images/features/nextjs.svg",
-          cta: {
-            label: "See more",
-            href: "#",
-          },
+          items: [
+            "Landing Page",
+            "Document Page",
+            "Authentication",
+            "Database",
+          ],
+          label: "40 hours saved",
         },
         {
           title: "Stripe",
           description:
             "Integration with Stripe Checkout and the Stripe customer portal, Automatic syncing of pricing plans and subscription statuses via Stripe webhooks",
           image: "/images/features/stripe.svg",
-          cta: {
-            label: "See more",
-            href: "#",
-          },
+          items: [
+            "Stripe Checkout",
+            "Stripe Customer Portal",
+            "Stripe Webhooks",
+          ],
+          label: "6 hours saved",
+        },
+        {
+          title: "Marketing",
+          description:
+            "SEO optimization, Analytics, Email marketing, and Social media sharing. Boost your website traffic and increase your sales.",
+          image: "/images/features/marketing.svg",
+          items: [
+            "SEO Optimization",
+            "Posthog Analytics",
+            "Resend Email",
+            "Social Media Bento",
+          ],
+          label: "15 hours saved",
         },
       ],
     },
@@ -155,10 +180,10 @@ export const siteConfig = {
     cta: {
       headline: "Ready to get started?",
       subheadline:
-        "Pre-order today and get a 50% discount on the final price for the first 3 months. No credit card required.",
+        "Start building your next project with Chainport. No credit card required.",
       cta: {
-        label: "Pre-order now",
-        href: "mailto:wanjun@chainport.pro",
+        label: "Get Shipped",
+        href: "/pricing",
       },
     },
   },
@@ -168,38 +193,41 @@ export const siteConfig = {
       "Use chainport for free. Upgrade to enable custom domains and more advanced features.",
     pricingPlans: [
       {
-        name: "Free",
-        price: { monthly: "$0", yearly: "$0" },
-        description: "Good for getting started.",
-        href: APP_URL,
-        features: [
-          "Free hosting on 'chainport.pro'",
-          "Optimized SEO",
-          "Has 'Built with Chainport' branding",
-        ],
-      },
-      {
         featured: true,
-        name: "Pro",
-        price: { monthly: "$29", yearly: "$25" },
-        billing: "per month",
+        name: "Startup Boilerplate",
+        price: { oneTime: "$99" },
+        billing: "One Time Payment",
         description: "Perfect for small / medium sized businesses.",
         href: APP_URL,
         features: [
-          "Everything in Free.",
-          "Basic analytics",
-          "Remove 'Built with Chainport' branding",
+          "Next.js 14",
+          "Email integrations",
+          "Magic link sign up",
+          "Workspace support",
+          "Markdown-based blog",
+          "Animated UI Components",
+          "Email & Password sign up",
+          "Stripe payments",
+          "Social logins (Google, Apple, 60+ more)",
+          "Lifetime updates",
         ],
       },
       {
-        name: "Entreprise",
-        price: { monthly: "$99", yearly: "$90" },
-        billing: "per month",
+        name: "Pro Boilerplate",
+        price: { oneTime: "$149" },
+        billing: "One Time Payment",
         description: "For even the biggest enterprise companies.",
         href: APP_URL,
         features: [
-          "Everything in Personal site.",
-          "Advanced analytics",
+          "Everything from the Startup Boilerplate",
+          "React Chrome Extension Boilerplate",
+          "Extension authentication",
+          "Push UI into web pages",
+          "Read content from web pages",
+          "Installation welcome page",
+          "Background & Content script",
+          "Discord community ✨",
+          "Lifetime updates",
           "Priority support",
         ],
       },
@@ -218,19 +246,15 @@ export const siteConfig = {
       {
         question: "How much does chainport cost?",
         answer:
-          "Chainport is free to use. You can upgrade to Pro for $19/month.",
-      },
-      {
-        question: "Can I use chainport for free?",
-        answer: "Yes, you can use chainport for free.",
+          "Chainport is pay once, launch unlimited products. No hidden fees.",
       },
     ],
     cta: {
       headline: "Ready to get started?",
       subheadline:
-        "Pre-order today and get a 50% discount on the final price for the first 3 months. No credit card required.",
+        "Start building your next project with Chainport. No credit card required.",
       cta: {
-        label: "Pre-order now",
+        label: "Get Shipped",
         href: "mailto:wanjun@chainport.pro",
       },
     },

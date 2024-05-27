@@ -1,8 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowRightIcon, CheckCircle, TimerIcon } from "lucide-react";
 import { cn, stringReplace } from "@/lib/utils";
 import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
 
 interface UseCasesProps {
   className?: string;
@@ -11,10 +12,8 @@ interface UseCasesProps {
     title: string;
     description: string;
     image?: string;
-    cta: {
-      label: string;
-      href: string;
-    };
+    items: string[];
+    label: string;
   }[];
 }
 
@@ -45,7 +44,8 @@ export const UseCases = (props: UseCasesProps) => {
           title={feature.title}
           description={feature.description}
           image={feature.image}
-          cta={feature.cta}
+          items={feature.items}
+          label={feature.label}
           direction={index % 2 === 0 ? "row" : "reverse"}
         />
       ))}
@@ -57,15 +57,13 @@ interface UseCaseProps {
   title: string;
   description: string;
   image?: string;
-  cta: {
-    label: string;
-    href: string;
-  };
+  items: string[];
+  label: string;
   direction?: "col" | "reverse" | "row";
 }
 
 const UseCase = (props: UseCaseProps) => {
-  const { title, description, cta, image, direction = "row" } = props;
+  const { title, description, items, label, image, direction = "row" } = props;
   return (
     <div
       className={cn("flex flex-col-reverse items-center gap-12", {
@@ -86,20 +84,18 @@ const UseCase = (props: UseCaseProps) => {
       <div>
         <h2 className="font-display text-3xl font-bold">{title}</h2>
         <p className="text-muted-foreground mt-4 text-lg">{description}</p>
-        <Link
-          href={cta.href}
-          className={cn(
-            "mt-2 flex items-center space-x-2 font-bold opacity-70 hover:opacity-100",
-            {
-              "md:mx-auto md:justify-center": direction === "col",
-            }
-          )}
-        >
-          <span>{cta.label}</span>
-          <span>
-            <ArrowRightIcon size={16} className="relative top-[2px]" />
-          </span>
-        </Link>
+        <ul>
+          {items.map((item, index) => (
+            <li key={index} className="flex items-center gap-2 text-sm mt-2">
+              <CheckCircle size={14} className="text-teal-400" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <Badge className="mt-2">
+          <TimerIcon size={16} className="mr-1" />
+          <span>{label.toUpperCase()}</span>
+        </Badge>
       </div>
     </div>
   );
