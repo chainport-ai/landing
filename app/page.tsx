@@ -6,6 +6,8 @@ import { Hero } from "@/components/hero";
 import { UseCases } from "@/components/use-cases";
 import { siteConfig } from "@/lib/config";
 
+export const runtime = "edge";
+
 export default function HomePage() {
   return (
     <div className="animate-in fade-in slide-in-from-top-6 pt-28 duration-500">

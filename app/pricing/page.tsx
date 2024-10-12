@@ -5,6 +5,8 @@ import { siteConfig } from "@/lib/config";
 import { FAQ } from "./faq";
 import { Pricing } from "./pricing";
 
+export const runtime = "edge";
+
 const config = siteConfig.pricingPage;
 
 export const metadata: Metadata = {

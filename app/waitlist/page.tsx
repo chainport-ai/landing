@@ -1,6 +1,8 @@
 import { ContactForm } from "@/app/waitlist/waitlist-form";
 import { stringReplace } from "@/lib/utils";
 
+export const runtime = "edge";
+
 const headline = "Join the **waitlist**";
 const subheadline =
   "Get early access to Chainport and build your next project faster.";
